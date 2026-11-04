@@ -24,6 +24,17 @@ body{background:#F5C518;display:flex;align-items:center;justify-content:center;p
 .hint{color:#FFE082;font-size:1rem;margin-top:24px;opacity:.75}
 .disclaimer{color:#cfcfcf;font-size:.62rem;margin-top:14px;opacity:.45;text-align:center;max-width:80%;line-height:1.4}
 .langHint{color:#ffb3b3;font-size:.68rem;margin:8px 0 0;opacity:.85;line-height:1.4}
+.stale-overlay{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72)}
+.stale-box{background:#1b1b1f;border:1px solid #ff6b6b;border-radius:12px;max-width:440px;padding:22px 24px;color:#eee;font-size:.9rem;line-height:1.6;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.stale-title{color:#ff8a8a;font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.stale-msg b{color:#ffd479}
+.stale-sub{display:block;margin-top:8px;color:#9aa;font-size:.78rem}
+.stale-btns{display:flex;gap:10px;margin-top:16px}
+.stale-btn{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.88rem}
+.stale-btn.clear{background:#ff6b6b;color:#fff}
+.stale-btn.clear:hover{background:#ff8585}
+.stale-btn.keep{background:#444;color:#ddd}
+.stale-btn.keep:hover{background:#555}
 .main{position:relative;z-index:10;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px 24px 22px}
 .main.show{display:flex}
 .vcont{flex:1;display:flex;align-items:center;justify-content:center;width:100%;min-height:0;margin-top:10px}
@@ -405,7 +416,7 @@ try{
   const _devMeta=document.querySelector('meta[name="verity-dev"]');
   if(_devMeta&&_devMeta.getAttribute('content')==='true'){window.__VERITY_DEV__=true;window.__GOD_MODE=true;try{console.log('[系统] 开发者模式已激活，反外挂系统已禁用。');}catch(e){}}
 }catch(e){}
-const VERITY_BUILD='verity-dev-2026-11-04';
+const VERITY_BUILD='verity-v1.0.0-release';
 
 function parseMD(text){
   if(!text)return'';
@@ -5424,6 +5435,22 @@ try{loadNeko();}catch(e){}
 if(API.dangerOverride)scheduleProactive();
 startDevWatch();
 startExtWatch();
+try{checkStaleData();}catch(e){}
+
+function checkStaleData(){
+  try{
+    if(LS.get('verity_data_ack'))return;   // 已确认过，不再打扰老用户
+    if(!LS.get('verity_api'))return;       // 没有旧存档，本来就是干净的
+    var ov=document.getElementById('staleOverlay');
+    if(!ov)return;
+    ov.style.display='flex';
+    var cb=document.getElementById('staleClearBtn');
+    var kb=document.getElementById('staleKeepBtn');
+    if(cb)cb.onclick=function(){try{LS.clear();}catch(e){}location.reload();};
+    if(kb)kb.onclick=function(){try{LS.set('verity_data_ack','1');}catch(e){}ov.style.display='none';};
+  }catch(e){}
+}
+
 try{ if(typeof window!=='undefined'&&window.VERITY_DEV_SAVE){applyDevSave(window.VERITY_DEV_SAVE);} }catch(e){}
 try{initSignatureGuard();}catch(e){}
 try{checkPersistedBan();}catch(e){}
@@ -5431,5 +5458,19 @@ toggleImageBtn();
 setTimeout(()=>{document.getElementById('creditModal').style.display='flex';},1000);
 });
 </script>
+<div id="staleOverlay" class="stale-overlay">
+  <div class="stale-box">
+    <div class="stale-title">⚠️ 检测到本地残留存档</div>
+    <div class="stale-msg">
+      你的浏览器本地存储（localStorage）中已存在上一会话 / 测试者的设置，<b>可能包含他人的 API Key</b>。<br>
+      为避免误用他人密钥，建议清除旧数据后再开始。<br>
+      <span class="stale-sub">Local storage already has leftover data from a previous session (it may contain a previous tester's API key). Clear it for a clean start — your key is only ever stored in your own browser, never in the files.</span>
+    </div>
+    <div class="stale-btns">
+      <button id="staleClearBtn" class="stale-btn clear">清除旧数据并继续</button>
+      <button id="staleKeepBtn" class="stale-btn keep">保留我的设置</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

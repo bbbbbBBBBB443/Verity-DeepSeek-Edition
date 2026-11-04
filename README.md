@@ -7,7 +7,9 @@
 [![Runtime](https://img.shields.io/badge/runtime-pure--frontend-ff69b4.svg)](index.html)
 [![Size](https://img.shields.io/badge/deploy-9.5MB-brightgreen)](index.html)
 
-> 🔴 **隐私提示**：本游戏纯前端运行，您的 **API Key 保存在本地浏览器**中（localStorage）。使用云端模型时，对话内容将发送至您填写的 **API 服务商**，请注意 **不要填写高权限密钥**（如主账号 AK/SK、付费平台全权限 Token）。
+> 🔴 **隐私提示**：本游戏纯前端运行，您的 **API Key 保存在本地浏览器**中（localStorage），**绝不会写进任何文件或源码**。使用云端模型时，对话内容将发送至您填写的 **API 服务商**，请注意 **不要填写高权限密钥**（如主账号 AK/SK、付费平台全权限 Token）。
+>
+> 🧹 首次打开若检测到本地残留存档（可能是上一测试者的设置 / API Key），游戏会弹出 **「清除旧数据」** 提示，点一下即可从头开始，避免误用他人密钥。localStorage 仅存在于你自己的浏览器，换台电脑或重新下载都不会继承。
 
 **一个跑在浏览器里的单文件心理恐怖视觉小说 × 赛博宠物养成。**
 零后端、零构建步骤——下载即玩，扔到任意静态托管（GitHub Pages / Netlify / Cloudflare Pages）即可在线运行。
