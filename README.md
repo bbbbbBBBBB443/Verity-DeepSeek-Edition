@@ -18,8 +18,6 @@
 
 👉 **https://gregarious-cannoli-4a3c24.netlify.app**
 
-> 💡 若打开后看到 Netlify 的「Login Redirect」登录页，说明该站点尚未公开发布或部署未完成——把它重新拖进 [Netlify Drop](https://app.netlify.com/drop) 并设为 Public 即可。
-
 ---
 
 ## ✨ 项目特色
