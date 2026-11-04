@@ -5,7 +5,7 @@
 [![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-blue.svg)](LICENSE)
 [![Build](https://img.shields.io/badge/build-single--file-success.svg)](index.html)
 [![Runtime](https://img.shields.io/badge/runtime-pure--frontend-ff69b4.svg)](index.html)
-[![Size](https://img.shields.io/badge/weight-lightweight-9.5MB.svg)](index.html)
+[![Size](https://img.shields.io/badge/deploy-9.5MB-brightgreen)](index.html)
 
 **一个跑在浏览器里的单文件心理恐怖视觉小说 × 赛博宠物养成。**
 零后端、零构建步骤——下载即玩，扔到任意静态托管（GitHub Pages / Netlify / Cloudflare Pages）即可在线运行。
