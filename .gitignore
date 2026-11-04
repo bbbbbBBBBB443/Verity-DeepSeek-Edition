@@ -1,0 +1,18 @@
+# ===== 依赖 =====
+node_modules/
+
+# ===== 本地构建 / 测试产物（不参与运行，可删） =====
+extras/
+*.zip
+
+# ===== 过大资源：跑酷视频 204MB =====
+# 开源仓库为保持轻量，不包含此文件。
+# 想体验本地跑酷模式的玩家，请自行把 run.mp4 放到 assets/audio/run.mp4
+# （在线版会自动跳过该视频，改用草地背景，无需此文件）。
+assets/audio/run.mp4
+
+# ===== 本地备份 / 校验副本（非源码，不入库） =====
+index.golden.backup
+index.verified.html
+verity_dev_save.js
+verity_dev_save.json
