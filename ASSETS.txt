@@ -1,23 +1,19 @@
-《真理：深渊觉醒》 目录结构与素材清单
+《真理：深渊觉醒》 目录结构与素材清单（仓库实际内容）
 ====================================================
 扫描来源：index.html 中所有 src / url() / new Audio() / <audio> / <video>
-结论：**所有被引用的文件均已在对应 assets 目录存在，无缺失（21/21）。**
+范围：本文件仅列出 **仓库内实际跟踪的文件**（与 git ls-files 一致）。
+被 .gitignore 排除的文件（run.mp4 / extras/ / 本地备份）不计入。
 
 目录结构
 --------
-index.html
-index.verified.html  （全绿验证备份，只读；发布/回滚用）
-verity_dev_save.js    （可选开发者存档，默认 null，由修改器覆盖）
-# 开发者修改器独立放在 E:\修改器\DevModifier.py，不随本包分发
+.gitignore
+index.html              # 全部逻辑（单文件，无构建步骤，约 470KB）
 README.md
-LICENSE.txt
-ASSETS.txt
+LICENSE                 # MIT（允许商用，须保留原作者署名）
+ASSETS.txt              # 本文件
 assets/
-  img/     （图片）
-  audio/   （音频 / 视频）
-extras/    （废案备份，不参与运行）
-  dev/     （历史补丁脚本与有效测试，不参与运行）
-  legacy/  （已过时的旧测试，不参与运行，可删）
+  img/                  # 图片（已统一小写文件名）
+  audio/                # 轻量音频 / 开场视频（不含 204MB 跑酷视频）
 
 ----------------------------------------------------
 【必须】assets/img/  缺失会明显影响体验（无兜底）
@@ -40,10 +36,9 @@ assets/img/run_fail_3.png      520 真结局·标准假笑
 ----------------------------------------------------
 assets/img/beijin.png          背景图        缺失→自动替换为黄色渐变（有 onerror 兜底）
 assets/img/player.png          跑酷玩家图标  缺失→图标裂图，不影响逻辑
-assets/img/Running_Verity.png  跑酷图标      缺失→图标裂图，不影响逻辑
+assets/img/running_verity.png  跑酷图标      缺失→图标裂图，不影响逻辑（文件名全小写）
 assets/img/home.png            跑酷终点图标  缺失→图标裂图，不影响逻辑
 assets/audio/startgame.mp4     开场视频      缺失/出错→直接进入主界面（有 error 兜底）
-assets/audio/run.mp4           跑酷背景视频  缺失→跑酷逻辑仍可玩，仅无视频
 assets/audio/Minecraft-c418.mp3 背景音乐     缺失→静音，不影响功能
 assets/audio/startsay.mp3      开场语音      缺失→静默
 assets/audio/music.mp3         游戏内点歌    缺失→播放失败提示，不崩溃
@@ -52,20 +47,14 @@ assets/audio/music2.mp3        歌单·歌曲二   缺失→该曲播放失败 a
 assets/audio/music3.mp3        歌单·天堂的彼岸 缺失→该曲播放失败 alert
 
 ----------------------------------------------------
-【废案】extras/  （已备份，不参与运行，可删）
+【已排除 · 不随仓库分发】
 ----------------------------------------------------
-extras/mad_collapse.png
-extras/mad_speak.png
-extras/poke.png
-extras/deepseek_girl.webp
-extras/creepy - 副本.png
-extras/face_*.png（6 个）
+assets/audio/run.mp4           跑酷背景视频（204MB，被 .gitignore 排除）
+                               在线版会自动跳过；本地 file:// 想体验需自行放置。
+extras/                        废案与测试脚本（被 .gitignore 排除，不参与运行）
 
 ----------------------------------------------------
-【开发件】extras/dev/（历史补丁 _g*.py 与测试 _t*.js，可删）
-----------------------------------------------------
-
 快速自检
---------
+----------------------------------------------------
 双击 index.html → Ctrl+Shift+R 强刷即可。
-换图：直接进 assets/img/ 覆盖同名文件，刷新即生效。
+换图：直接进 assets/img/ 覆盖同名文件（注意全小写文件名），刷新即生效。

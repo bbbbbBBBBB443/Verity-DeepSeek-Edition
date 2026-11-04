@@ -7,6 +7,8 @@
 [![Runtime](https://img.shields.io/badge/runtime-pure--frontend-ff69b4.svg)](index.html)
 [![Size](https://img.shields.io/badge/deploy-9.5MB-brightgreen)](index.html)
 
+> 🔴 **隐私提示**：本游戏纯前端运行，您的 **API Key 保存在本地浏览器**中（localStorage）。使用云端模型时，对话内容将发送至您填写的 **API 服务商**，请注意 **不要填写高权限密钥**（如主账号 AK/SK、付费平台全权限 Token）。
+
 **一个跑在浏览器里的单文件心理恐怖视觉小说 × 赛博宠物养成。**
 零后端、零构建步骤——下载即玩，扔到任意静态托管（GitHub Pages / Netlify / Cloudflare Pages）即可在线运行。
 
@@ -79,7 +81,9 @@ extras/             # 废案与测试脚本（已被 .gitignore 排除，不参�
 
 ## 📄 许可证
 
-见 [LICENSE](LICENSE)：基于 **MIT** 协议，**允许自由修改与再分发，但必须保留原作者署名，且禁止任何形式的商业售卖。**
+见 [LICENSE](LICENSE)：基于 **MIT** 协议，**允许自由修改与再分发，必须保留原作者署名。**
+
+> 🤝 **商用约定**：MIT 协议本身允许商业使用；但本项目是爱好者三创魔改，请尊重原作者——**若要商用，请先取得原作者（盒合褐Hehehe / 罚双本双 / 唐666114514）授权。**
 
 > “官方只是提供了一个 API，而真正的世界是 Mod 作者建的。”
 > —— 玩得开心，记得调小音量。🎧
