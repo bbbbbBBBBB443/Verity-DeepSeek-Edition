@@ -18,7 +18,7 @@
 
 ## 🎮 在线体验
 
-👉 **https://gregarious-cannoli-4a3c24.netlify.app**
+👉 **https://bbbbbbbbbb443.github.io/Verity-DeepSeek-Edition/**
 
 ---
 
